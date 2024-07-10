@@ -32,7 +32,7 @@ const PersonDetails = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`https://job-searching-backend-phpz.onrender.com/userlogin/${email}`);
+        const response = await axios.get(`https://job-b.vercel.app//userlogin/${email}`);
         const data = response.data;
         setUserData({
           id: data.id,
@@ -50,7 +50,7 @@ const PersonDetails = () => {
     const fetchData = async () => {
       if (!id) return;
       try {
-        const responseId = await fetch("https://job-searching-backend-phpz.onrender.com/resultData", {
+        const responseId = await fetch("https://job-b.vercel.app//resultData", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const PersonDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://job-searching-backend-phpz.onrender.com/reqbooking", {
+      await axios.post("https://job-b.vercel.app//reqbooking", {
         ...reviewData,
         userEmail,
         seekerId,

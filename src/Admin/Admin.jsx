@@ -10,7 +10,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get("https://job-searching-backend-phpz.onrender.com/transactions");
+        const response = await axios.get("https://job-b.vercel.app//transactions");
         setTransactions(response.data);
       } catch (err) {
         setError(err.message);
