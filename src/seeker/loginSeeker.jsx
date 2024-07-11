@@ -26,7 +26,7 @@ function Login() {
 
     if (err.email === "" && err.password === "") {
       axios
-  .post("https://job-b.vercel.app//auth/loginSeeker", values)
+  .post("https://job-b.vercel.app/auth/loginSeeker", values)
         .then((res) => {
           if (res.data.errors) {
             setBackendError(res.data.errors);

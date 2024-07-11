@@ -15,7 +15,7 @@ const Payment = ({ onPaymentSuccess }) => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get('https://job-b.vercel.app//transactions');
+        const response = await axios.get('https://job-b.vercel.app/transactions');
         setTransactions(response.data);
       } catch (error) {
         console.error('Error fetching transactions:', error);
@@ -41,7 +41,7 @@ const Payment = ({ onPaymentSuccess }) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('https://job-b.vercel.app//order', {
+      const response = await axios.post('https://job-b.vercel.app/order', {
         sender,
         receiver,
         amount,
@@ -68,7 +68,7 @@ const Payment = ({ onPaymentSuccess }) => {
           const razorpayOrderId = response.razorpay_order_id;
           const razorpaySignature = response.razorpay_signature;
           try {
-            const paymentResponse = await axios.post('https://job-b.vercel.app//payment-success', {
+            const paymentResponse = await axios.post('https://job-b.vercel.app/payment-success', {
               sender,
               receiver,
               amount,

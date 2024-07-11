@@ -30,7 +30,7 @@ const [formData, setFormData] = useState({
 const handleAcceptJob = async (email, salary, name, userId ,userEmail) => {
   try {
     const response = await axios.post(
-      "https://job-b.vercel.app//accept",
+      "https://job-b.vercel.app/accept",
       { email, salary, name, userId, userEmail }
     );
     console.log(response.data);
@@ -45,7 +45,7 @@ const handleAcceptJob = async (email, salary, name, userId ,userEmail) => {
 //   const fetchBookings = async () => {
 //     try {
 //       const response = await axios.get(
-//         `https://job-b.vercel.app//reqbooking/${email}`
+//         `https://job-b.vercel.app/reqbooking/${email}`
 //       );
 //       setBookings(response.data);
 //     } catch (error) {
@@ -59,7 +59,7 @@ const handleAcceptJob = async (email, salary, name, userId ,userEmail) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://job-b.vercel.app//seeker/${email}`
+          `https://job-b.vercel.app/seeker/${email}`
         );
         const data = response.data;
         setFormData({
@@ -88,7 +88,7 @@ const handleAcceptJob = async (email, salary, name, userId ,userEmail) => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(`https://job-b.vercel.app//reviews/${id}`);
+        const response = await axios.get(`https://job-b.vercel.app/reviews/${id}`);
         setReviews(response.data);
       } catch (error) {
         setError("Error retrieving reviews");
@@ -124,7 +124,7 @@ const handleAcceptJob = async (email, salary, name, userId ,userEmail) => {
       });
   
       const response = await axios.put(
-        `https://job-b.vercel.app//seeker/${email}`,
+        `https://job-b.vercel.app/seeker/${email}`,
         formDataObj,
         {
           headers: {
@@ -152,7 +152,7 @@ const handleAcceptJob = async (email, salary, name, userId ,userEmail) => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`https://job-b.vercel.app//reqbooking/${email}`);
+        const response = await axios.get(`https://job-b.vercel.app/reqbooking/${email}`);
         setBookings(response.data);
         console.log(setBookings)
       } catch (error) {

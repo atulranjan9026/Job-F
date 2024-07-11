@@ -23,7 +23,7 @@ function Signup() {
     console.log(values);
 
     try {
-      const response = await axios.post("https://job-b.vercel.app//auth/signup", values);
+      const response = await axios.post("https://job-b.vercel.app/auth/signup", values);
       console.log("response.data.result:", response.data);
       navigate("/login");
     } catch (error) {

@@ -36,7 +36,7 @@ const Header = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://job-b.vercel.app//Text", {
+        const response = await fetch("https://job-b.vercel.app/Text", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

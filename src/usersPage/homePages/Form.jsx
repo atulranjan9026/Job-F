@@ -150,7 +150,7 @@ function KNNApp({ moveToResultPage }) {
 
     const fetchData = async () => {
       try {
-        const response = await fetch("https://job-b.vercel.app//data", {
+        const response = await fetch("https://job-b.vercel.app/data", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -203,7 +203,7 @@ function KNNApp({ moveToResultPage }) {
 
     // Make a POST request to your backend API to save the form data to the database
     try {
-      const response = await fetch("https://job-b.vercel.app//minidbnew", {
+      const response = await fetch("https://job-b.vercel.app/minidbnew", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -213,7 +213,7 @@ function KNNApp({ moveToResultPage }) {
       const data = await response.json();
       // console.log("Form submitted successfully:", data);
 
-      const response2 = await fetch("https://job-b.vercel.app//search", {
+      const response2 = await fetch("https://job-b.vercel.app/search", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -230,7 +230,7 @@ function KNNApp({ moveToResultPage }) {
       console.log("distances :", arr);
 
       // Seeker table data
-      const response3 = await fetch("https://job-b.vercel.app//seeker", {
+      const response3 = await fetch("https://job-b.vercel.app/seeker", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
