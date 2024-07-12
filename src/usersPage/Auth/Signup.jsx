@@ -23,7 +23,7 @@ function Signup() {
     console.log(values);
 
     try {
-      const response = await axios.post(`https://job-b-jlk3.onrender.com/auth/signup`, values);
+      const response = await axios.post("https://job-b-jlk3.onrender.com/auth/signup", values);
       console.log("response.data.result:", response.data);
       navigate("/login");
     } catch (error) {
