@@ -16,6 +16,19 @@ const FirstPage = () => {
     configScript.async = true;
     document.body.appendChild(configScript);
 
+    // XMLHttpRequest to Botpress
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://webchat.botpress.cloud/e433f8f8-eac6-44cc-abce-758734967819/users/me', true);
+    xhr.withCredentials = true;
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        console.log('Response:', xhr.responseText);
+      } else {
+        console.error('Error:', xhr.statusText);
+      }
+    };
+    xhr.send();
+
     return () => {
       document.body.removeChild(botpressScript);
       document.body.removeChild(configScript);
