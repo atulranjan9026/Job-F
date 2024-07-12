@@ -13,7 +13,7 @@ const BookingStatus = () => {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const response = await axios.get(`https://job-b.vercel.app/accept/${UserEmail}`);
+                const response = await axios.get(`https://job-b-jlk3.onrender.com/accept/${UserEmail}`);
                 setBookings(response.data);
             } catch (error) {
                 setError("Error retrieving booking details");
@@ -28,7 +28,7 @@ const BookingStatus = () => {
             const fetchSeekerDetails = async () => {
                 try {
                     const seekerEmails = bookings.map(booking => booking.email);
-                    const responses = await Promise.all(seekerEmails.map(email => axios.get(`https://job-b.vercel.app/seeker/${email}`)));
+                    const responses = await Promise.all(seekerEmails.map(email => axios.get(`https://job-b-jlk3.onrender.com/seeker/${email}`)));
                     const details = responses.map(response => response.data);
                     setSeekerDetails(details);
                 } catch (error) {
@@ -47,7 +47,7 @@ const BookingStatus = () => {
 
     const handleDelete = async (salary) => {
         try {
-            await axios.delete(`https://job-b.vercel.app/accept/${salary}`);
+            await axios.delete(`https://job-b-jlk3.onrender.com/accept/${salary}`);
             setBookings(bookings.filter(booking => booking.salary !== salary));
             setSeekerDetails(seekerDetails.filter(seeker => {
                 const booking = bookings.find(b => b.salary === salary);

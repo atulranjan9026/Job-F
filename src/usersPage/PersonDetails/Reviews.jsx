@@ -35,7 +35,7 @@ const Reviews = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://job-b.vercel.app/reviews", {
+      await axios.post("https://job-b-jlk3.onrender.com/reviews", {
         ...reviewData, // Include the seeker ID in the review data
         seekerId,
       });

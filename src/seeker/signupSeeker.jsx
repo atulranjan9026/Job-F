@@ -24,7 +24,7 @@ function signupSeeker() {
 
     try {
       const response = await axios.post(
-        "https://job-b.vercel.app/auth/signupSeeker",
+        "https://job-b-jlk3.onrender.com/auth/signupSeeker",
         values
       );
 

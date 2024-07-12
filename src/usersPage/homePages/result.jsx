@@ -35,7 +35,7 @@ const Result = ({ data }) => {
         const mostCommonClass = "your_most_common_class";
         const ids = data;
 
-        const responseId = await axios.post("https://job-b.vercel.app/resultData", {
+        const responseId = await axios.post("https://job-b-jlk3.onrender.com/resultData", {
           id: mostCommonClass,
           ids
         });
