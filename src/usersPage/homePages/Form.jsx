@@ -203,14 +203,14 @@ function KNNApp({ moveToResultPage }) {
 
     // Make a POST request to your backend API to save the form data to the database
     try {
-      const response = await fetch("https://job-b-jlk3.onrender.com/sql5719272", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
+      // const response = await fetch("https://job-b-jlk3.onrender.com/sql5719272", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
+      // const data = await response.json();
       // console.log("Form submitted successfully:", data);
 
       const response2 = await fetch("https://job-b-jlk3.onrender.com/search", {
