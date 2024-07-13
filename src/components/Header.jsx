@@ -43,21 +43,29 @@ const Header = () => {
           },
           body: JSON.stringify({ names: searchText }),
         });
-
+  
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
-
+  
         const data = await response.json();
-
-        setSearchResults(data);
+  
+        if (Array.isArray(data)) {
+          setSearchResults(data);
+        } else {
+          console.error("Data is not an array:", data);
+          setSearchResults([]);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
+        setSearchResults([]);
       }
     };
-
+  
     fetchData();
   }, [searchText]);
+  
+  
 
   return (
     <>
