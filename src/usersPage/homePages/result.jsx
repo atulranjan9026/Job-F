@@ -29,28 +29,31 @@ const Result = ({ data }) => {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
-      if (!data) return;
-      try {
-        const mostCommonClass = "your_most_common_class";
-        const ids = data;
+  const fetchData = async () => {
+    if (!data) return;
+    try {
+      const mostCommonClass = "your_most_common_class";
+      const ids = data;
 
-        const responseId = await axios.post("https://job-b-jlk3.onrender.com/resultData", {
-          id: mostCommonClass,
-          ids
-        });
+      console.log("Data being sent:", { id: mostCommonClass, ids }); // Add this line
 
-        const dataId = responseId.data;
-        console.log("resultData :", dataId[0], dataId[0].name);
+      const responseId = await axios.post("https://job-b-jlk3.onrender.com/resultData", {
+        id: mostCommonClass,
+        ids
+      });
 
-        setUserData(dataId);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+      const dataId = responseId.data;
+      console.log("resultData :", dataId[0], dataId[0].name);
 
-    fetchData();
-  }, [data]);
+      setUserData(dataId);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  fetchData();
+}, [data]);
+
 
   return (
     <div className="result">
