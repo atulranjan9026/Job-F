@@ -29,30 +29,39 @@ const Result = ({ data }) => {
   }
 
   useEffect(() => {
-  const fetchData = async () => {
-    if (!data) return;
-    try {
-      const mostCommonClass = "your_most_common_class";
-      const ids = data;
-
-      console.log("Data being sent:", { id: mostCommonClass, ids }); // Add this line
-
-      const responseId = await axios.post("https://job-b-jlk3.onrender.com/resultData", {
-        id: mostCommonClass,
-        ids
-      });
-
-      const dataId = responseId.data;
-      console.log("resultData :", dataId[0], dataId[0].name);
-
-      setUserData(dataId);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  fetchData();
-}, [data]);
+    const fetchData = async () => {
+      if (!data) return;
+      try {
+        const mostCommonClass = "your_most_common_class";
+        const ids = data;
+  
+        console.log("Data being sent:", { id: mostCommonClass, ids });
+  
+        const responseId = await axios.post("https://job-b-jlk3.onrender.com/resultData", {
+          id: mostCommonClass,
+          ids
+        });
+  
+        const dataId = responseId.data;
+        console.log("resultData:", dataId[0], dataId[0].name);
+  
+        setUserData(dataId);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        if (error.response) {
+          console.error("Server responded with a status:", error.response.status);
+          console.error("Response data:", error.response.data);
+        } else if (error.request) {
+          console.error("Request was made but no response received:", error.request);
+        } else {
+          console.error("Error setting up the request:", error.message);
+        }
+      }
+    };
+  
+    fetchData();
+  }, [data]);
+  
 
 
   return (
